@@ -1,0 +1,41 @@
+#include <iostream>
+#include <utility>
+
+int main() {
+	
+	
+
+	std::pair<int, int> points;
+
+  // Change the variable below to change the number which will be summed to
+
+	int target = 234234;
+
+	int left = 1;
+	int right = 1;
+	int cur = right;
+
+	while (left <= right) {
+		right++;
+		cur += right;
+
+		while (cur >= target) {
+			if (cur == target) {
+				if (points.second - points.first + 1 < right - left + 1) {
+					points.first = left;
+					points.second = right;
+				}
+			}
+
+			cur -= left;
+
+			left++;
+		}
+
+	}
+
+	std::cout << points.first << " and " << points.second << std::endl;
+
+
+	
+}
